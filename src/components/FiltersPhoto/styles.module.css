@@ -1,0 +1,16 @@
+.form {
+	margin: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.form_interval {
+	display: flex;
+	flex-direction: column;
+}
+
+.form_interval input {
+	padding: 5px;
+	margin: 10px;
+}

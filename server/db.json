@@ -1,0 +1,192 @@
+{
+	"cars": [
+		{
+			"id": 1,
+			"brand": "BMW",
+			"model": "F30",
+			"indexEngine": "320"
+		},
+		{
+			"id": 2,
+			"brand": "BMW",
+			"model": "G20",
+			"indexEngine": "340"
+		},
+		{
+			"id": 3,
+			"brand": "BMW",
+			"model": "G30",
+			"indexEngine": "530"
+		},
+		{
+			"id": 4,
+			"brand": "BMW",
+			"model": "F02",
+			"indexEngine": "740"
+		},
+		{
+			"id": 5,
+			"brand": "BMW",
+			"model": "F13",
+			"indexEngine": "650"
+		},
+		{
+			"id": 6,
+			"brand": "BMW",
+			"model": "F20",
+			"indexEngine": "118"
+		},
+		{
+			"id": 7,
+			"brand": "BMW",
+			"model": "G12",
+			"indexEngine": "760"
+		},
+		{
+			"id": 8,
+			"brand": "BMW",
+			"model": "F90",
+			"indexEngine": ""
+		},
+		{
+			"id": 9,
+			"brand": "BMW",
+			"model": "G05",
+			"indexEngine": ""
+		},
+		{
+			"id": 10,
+			"brand": "BMW",
+			"model": "E92",
+			"indexEngine": ""
+		},
+		{
+			"id": 11,
+			"brand": "BMW",
+			"model": "G81",
+			"indexEngine": ""
+		}
+	],
+	"clothes": [
+		{
+			"id": 1,
+			"price": "2000$"
+		},
+		{
+			"id": 2,
+			"price": "3000$"
+		},
+		{
+			"id": 3,
+			"price": "1000$"
+		},
+		{
+			"id": 4,
+			"price": "20000$"
+		},
+		{
+			"id": 5,
+			"price": "6000$"
+		},
+		{
+			"id": 6,
+			"price": "3600$"
+		},
+		{
+			"id": 7,
+			"price": "9990$"
+		},
+		{
+			"id": 8,
+			"price": "99$"
+		},
+		{
+			"id": 9,
+			"price": "7700$"
+		},
+		{
+			"id": 10,
+			"price": "69$"
+		},
+		{
+			"id": 11,
+			"price": "10000$"
+		},
+		{
+			"id": 12,
+			"price": "12000$"
+		},
+		{
+			"id": 13,
+			"price": "15000$"
+		},
+		{
+			"id": 14,
+			"price": "7999$"
+		},
+		{
+			"id": 15,
+			"price": "49999$"
+		},
+		{
+			"id": 16,
+			"price": "50000$"
+		},
+		{
+			"id": 17,
+			"price": "8888$"
+		},
+		{
+			"id": 18,
+			"price": "1000$"
+		},
+		{
+			"id": 19,
+			"price": "78000$"
+		},
+		{
+			"id": 20,
+			"price": "30000$"
+		},
+		{
+			"id": 21,
+			"price": "5600$"
+		},
+		{
+			"id": 22,
+			"price": "5700$"
+		},
+		{
+			"id": 23,
+			"price": "4000$"
+		},
+		{
+			"id": 24,
+			"price": "89000$"
+		},
+		{
+			"id": 25,
+			"price": "66600$"
+		},
+		{
+			"id": 26,
+			"price": "25000$"
+		},
+		{
+			"id": 27,
+			"price": "111$"
+		},
+		{
+			"id": 28,
+			"price": "50$"
+		},
+		{
+			"id": 29,
+			"price": "600$"
+		},
+		{
+			"id": 30,
+			"price": "299$"
+		}
+	]
+}
