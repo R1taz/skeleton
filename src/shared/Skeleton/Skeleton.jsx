@@ -1,21 +1,19 @@
 import React from 'react'
 import style from './Skeleton.module.css'
 
-const Skeleton = ({ countElems = 1, type = 'car' }) => {
+const Skeleton = ({ countElems, width, height, margin }) => {
 	const elements = []
-
-	for (let i = 0; i < countElems; i++) {
-		elements.push(
-			<div key={i} className={`${style.item} ${style[type]}`}></div>
-		)
+	const styles = {
+		width: width ? `${width}px` : '100%',
+		height: height ? `${height}px` : '100%',
+		margin: margin ? `${margin}px` : '0px',
 	}
 
-	return (
-		<div>
-			<div style={{ margin: '15px' }}>Preloader</div>
-			{elements}
-		</div>
-	)
+	for (let i = 0; i < countElems; i++) {
+		elements.push(<div key={i} style={styles} className={style.item}></div>)
+	}
+
+	return <div>{elements}</div>
 }
 
 export default Skeleton

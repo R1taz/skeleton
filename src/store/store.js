@@ -1,24 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
-import carsSlice from './slices/carsSlice'
-import clothesSlice from './slices/clothesSlice'
-import photosSlice from './slices/photosSlice'
-import { carsApi } from '../api/carsApi'
-import { clothesApi } from '../api/clothesApi'
-import { photosApi } from '../api/photosApi'
+import simpleSlice from './slices/simpleSlice'
+import commentsSlice from './slices/commentsSlice'
 
-export default configureStore({
+const store = configureStore({
 	reducer: {
-		carsSlice,
-		clothesSlice,
-		photosSlice,
-		[carsApi.reducerPath]: carsApi.reducer,
-		[clothesApi.reducerPath]: clothesApi.reducer,
-		[photosApi.reducerPath]: photosApi.reducer,
+		simpleSlice,
+		commentsSlice,
 	},
-	middleware: getDefaultMiddleware =>
-		getDefaultMiddleware().concat([
-			carsApi.middleware,
-			clothesApi.middleware,
-			photosApi.middleware,
-		]),
 })
+export default store

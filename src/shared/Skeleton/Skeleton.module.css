@@ -11,23 +11,6 @@
 	border-radius: 1em;
 	background: linear-gradient(-90deg, #ffffff 0%, #e0e0e0 50%, #ffffff 100%);
 	background-size: 400% 400%;
+	opacity: 0%;
 	animation: pulse 1.2s ease-in-out infinite;
-}
-
-.car {
-	width: 45vh;
-	height: 25vh;
-	margin: 30px;
-}
-
-.clothing {
-	width: 45vh;
-	height: 15vh;
-	margin: 30px;
-}
-
-.photo {
-	width: 30vh;
-	height: 30vh;
-	margin: 30px 0px 70px 0px;
 }
