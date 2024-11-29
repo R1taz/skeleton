@@ -5,10 +5,12 @@ import styles from './styles.module.css'
 const Layout = () => {
 	return (
 		<div className={styles.layout}>
-			<NavLink to='/'>Home</NavLink>
-			<NavLink to='/virtual'>Virtual scroll</NavLink>
-			<NavLink to='/comments'>Comments</NavLink>
-			<NavLink to='/countries'>Countries</NavLink>
+			<nav>
+				<NavLink to='/'>Home</NavLink>
+				<NavLink to='/photos'>Photos</NavLink>
+				<NavLink to='/comments'>Comments</NavLink>
+				<NavLink to='/countries'>Countries</NavLink>
+			</nav>
 
 			<Outlet />
 		</div>

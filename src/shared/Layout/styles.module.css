@@ -1,3 +1,27 @@
-.layout a {
-	margin: 10px;
+.layout {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.layout nav {
+	display: flex;
+	justify-content: space-around;
+
+	font-size: 17px;
+	background-color: #747bff;
+	border-radius: 1em;
+	width: 50%;
+	padding: 25px 10px;
+	margin-bottom: 20px;
+}
+
+.layout nav a {
+	color: aliceblue;
+	transition: all 0.2s ease;
+}
+
+.layout nav a:hover {
+	color: #213547;
 }

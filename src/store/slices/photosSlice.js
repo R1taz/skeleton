@@ -5,13 +5,13 @@ const items = Array.from({ length: 10000 }, (_, index) => ({
 	text: String(index),
 }))
 
-const simpleSlice = createSlice({
+const photosSlice = createSlice({
 	name: 'simpleSlice',
 	initialState: {
 		items: items,
 		rowHeight: 60,
-		containerHeight: 700,
-		overscan: 5,
+		containerHeight: 500,
+		overscan: 3,
 		isScrolling: false,
 	},
 	reducers: {
@@ -24,5 +24,5 @@ const simpleSlice = createSlice({
 	},
 })
 
-export default simpleSlice.reducer
-export const { reverseItems, setIsScrolling } = simpleSlice.actions
+export default photosSlice.reducer
+export const { reverseItems, setIsScrolling } = photosSlice.actions

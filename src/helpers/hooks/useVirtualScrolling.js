@@ -1,13 +1,12 @@
 import React, { useLayoutEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { setIsScrolling } from '../store/slices/simpleSlice'
+import { setIsScrolling } from '../../store/slices/photosSlice'
 
 const useVirtualScrolling = props => {
-	const { containerHeight, rowHeight, scrollElementRef } = props
+	const { containerHeight, rowHeight, scrollElementRef, items, overscan } =
+		props
 
 	const [scrollTop, setScrollTop] = useState(0)
-	const items = useSelector(state => state.simpleSlice.items)
-	const overscan = useSelector(state => state.simpleSlice.overscan)
 
 	useLayoutEffect(() => {
 		const scrollElement = scrollElementRef.current

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import styles from './styles.module.css'
 
 const Paginator = ({
 	totalCount,
@@ -21,6 +22,7 @@ const Paginator = ({
 	for (let i = leftNumber; i <= rightNumber; i++) {
 		buttons.push(
 			<button
+				className={styles.button}
 				disabled={i === currentPage}
 				onClick={() => setCurrentPage(i)}
 				key={i}
@@ -33,23 +35,25 @@ const Paginator = ({
 	return (
 		<div>
 			<button
+				className={styles.button}
 				disabled={currentPortion === 1}
 				onClick={() => {
 					setCurrentPage(leftNumber - portionSize)
 					setCurrentPortion(currentPortion - 1)
 				}}
 			>
-				prev
+				&#8592;
 			</button>
 			{buttons.map(item => item)}
 			<button
+				className={styles.button}
 				disabled={currentPortion === allPortionCount}
 				onClick={() => {
 					setCurrentPage(rightNumber + 1)
 					setCurrentPortion(currentPortion + 1)
 				}}
 			>
-				next
+				&#8594;
 			</button>
 		</div>
 	)

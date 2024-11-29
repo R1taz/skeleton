@@ -1,0 +1,13 @@
+.photos {
+	width: 75%;
+}
+
+.photo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.reverseBtn {
+	margin: 0px 0px 20px;
+}

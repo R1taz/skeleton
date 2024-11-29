@@ -1,29 +1,37 @@
 import React, { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { reverseItems } from '../../store/slices/simpleSlice'
+import { reverseItems } from '../../store/slices/photosSlice'
 import Skeleton from '../../shared/Skeleton/Skeleton'
-import useVirtualScrolling from '../../hooks/useVirtualScrolling'
+import useVirtualScrolling from '../../helpers/hooks/useVirtualScrolling'
+import styles from './styles.module.css'
 
-const VirtualScroll = () => {
+const Photos = () => {
 	const scrollElementRef = useRef(null)
-	const isScrolling = useSelector(state => state.simpleSlice.isScrolling)
-	const rowHeight = useSelector(state => state.simpleSlice.rowHeight)
+	const isScrolling = useSelector(state => state.photosSlice.isScrolling)
+	const rowHeight = useSelector(state => state.photosSlice.rowHeight)
 	const containerHeight = useSelector(
-		state => state.simpleSlice.containerHeight
+		state => state.photosSlice.containerHeight
 	)
+	const items = useSelector(state => state.photosSlice.items)
+	const overscan = useSelector(state => state.photosSlice.overscan)
 	const dispatch = useDispatch()
 
 	const { virtualItems, topDivHeight, bottomDivHeight } = useVirtualScrolling({
 		containerHeight,
 		rowHeight,
 		scrollElementRef,
+		items,
+		overscan,
 	})
 
 	return (
-		<div>
-			<div>
-				<button onClick={() => dispatch(reverseItems())}>reverse</button>
-			</div>
+		<div className={styles.photos}>
+			<button
+				className={styles.reverseBtn}
+				onClick={() => dispatch(reverseItems())}
+			>
+				reverse
+			</button>
 
 			<div
 				style={{
@@ -40,7 +48,11 @@ const VirtualScroll = () => {
 					)} */}
 					{!isScrolling &&
 						virtualItems.map(virtualItem => (
-							<div key={virtualItem.id} style={{ height: rowHeight }}>
+							<div
+								key={virtualItem.id}
+								className={styles.photo}
+								style={{ height: rowHeight }}
+							>
 								{virtualItem.text}
 							</div>
 						))}
@@ -51,4 +63,4 @@ const VirtualScroll = () => {
 	)
 }
 
-export default VirtualScroll
+export default Photos

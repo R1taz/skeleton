@@ -6,7 +6,6 @@ const commentsSlice = createSlice({
 		comments: [],
 		currentPage: 1,
 		pageSize: 10,
-		category: 'All',
 	},
 	reducers: {
 		setComments(state, action) {
