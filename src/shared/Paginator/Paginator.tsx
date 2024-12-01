@@ -1,5 +1,13 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import styles from './styles.module.css'
+
+interface Props {
+	totalCount: number
+	currentPage: number
+	pageSize: number
+	portionSize: number
+	setCurrentPage: (page: number) => void
+}
 
 const Paginator = ({
 	totalCount,
@@ -7,7 +15,7 @@ const Paginator = ({
 	pageSize,
 	portionSize,
 	setCurrentPage,
-}) => {
+}: Props) => {
 	const allPagesCount = Math.ceil(totalCount / pageSize)
 	const allPortionCount = Math.ceil(allPagesCount / portionSize)
 	const [currentPortion, setCurrentPortion] = useState(
@@ -17,7 +25,7 @@ const Paginator = ({
 	const leftNumber = (currentPortion - 1) * portionSize + 1
 	const rightNumber = Math.min(allPagesCount, currentPortion * portionSize)
 
-	const buttons = []
+	const buttons: React.JSX.Element[] = []
 
 	for (let i = leftNumber; i <= rightNumber; i++) {
 		buttons.push(

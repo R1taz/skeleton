@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
-import photosSlice from './slices/photosSlice'
-import commentsSlice from './slices/commentsSlice'
-import countriesSlice from './slices/countriesSlice'
+import photosSlice from './slices/photosSlice.ts'
+import commentsSlice from './slices/commentsSlice.ts'
+import countriesSlice from './slices/countriesSlice.ts'
 import countriesApi from '../api/countriesApi'
 import commentsApi from '../api/commentsApi'
 

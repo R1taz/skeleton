@@ -1,20 +1,20 @@
 import React, { useRef } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { reverseItems } from '../../store/slices/photosSlice'
-import Skeleton from '../../shared/Skeleton/Skeleton'
-import useVirtualScrolling from '../../helpers/hooks/useVirtualScrolling'
+import { reverseItems } from '../../store/slices/photosSlice.ts'
+import Skeleton from '../../shared/Skeleton/Skeleton.tsx'
+import useVirtualScrolling from '../../helpers/hooks/useVirtualScrolling.ts'
 import styles from './styles.module.css'
+import { useAppSelector, useAppDispatch } from '../../helpers/hooks/appHooks.ts'
 
 const Photos = () => {
-	const scrollElementRef = useRef(null)
-	const isScrolling = useSelector(state => state.photosSlice.isScrolling)
-	const rowHeight = useSelector(state => state.photosSlice.rowHeight)
-	const containerHeight = useSelector(
+	const scrollElementRef = useRef<HTMLDivElement | null>(null)
+	const isScrolling = useAppSelector(state => state.photosSlice.isScrolling)
+	const rowHeight = useAppSelector(state => state.photosSlice.rowHeight)
+	const containerHeight = useAppSelector(
 		state => state.photosSlice.containerHeight
 	)
-	const items = useSelector(state => state.photosSlice.items)
-	const overscan = useSelector(state => state.photosSlice.overscan)
-	const dispatch = useDispatch()
+	const items = useAppSelector(state => state.photosSlice.items)
+	const overscan = useAppSelector(state => state.photosSlice.overscan)
+	const dispatch = useAppDispatch()
 
 	const { virtualItems, topDivHeight, bottomDivHeight } = useVirtualScrolling({
 		containerHeight,

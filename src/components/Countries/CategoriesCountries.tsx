@@ -1,12 +1,11 @@
 import React from 'react'
 import styles from './styles.module.css'
-import { useDispatch, useSelector } from 'react-redux'
-import { setCurrentPage } from '../../store/slices/commentsSlice'
-import { setSelectedCategory } from '../../store/slices/countriesSlice'
+import { setSelectedCategory } from '../../store/slices/countriesSlice.ts'
+import { useAppDispatch, useAppSelector } from '../../helpers/hooks/appHooks.ts'
 
 const CategoriesCountries = () => {
-	const categories = useSelector(state => state.countriesSlice.categories)
-	const dispatch = useDispatch()
+	const categories = useAppSelector(state => state.countriesSlice.categories)
+	const dispatch = useAppDispatch()
 
 	return (
 		<div>

@@ -1,16 +1,21 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import axios from 'axios'
 import { LOCALHOST_URL } from '../constants/constants'
+import { ICountry } from '../helpers/interfaces/countriesInterfaces'
+import {
+	IGetCountriesAPI,
+	IResponseGetCountriesAPI,
+} from '../helpers/interfaces/countriesApi'
 
 const countriesApi = createApi({
 	reducerPath: 'countriesApi',
 	baseQuery: fetchBaseQuery({ baseUrl: LOCALHOST_URL }),
 	endpoints: builder => ({
-		getCountriesAPI: builder.query({
+		getCountriesAPI: builder.query<IResponseGetCountriesAPI, IGetCountriesAPI>({
 			queryFn: async ({ current_page, page_size, category, keywords }) => {
 				try {
-					let filtredCountries
-					let totalCount
+					let filtredCountries: ICountry[] | undefined
+					let totalCount: number | undefined
 
 					if (keywords === '') {
 						const response = await axios.get(`${LOCALHOST_URL}us-counties`, {
@@ -33,12 +38,12 @@ const countriesApi = createApi({
 						})
 
 						const countries = response.data
-						filtredCountries = countries.filter(country => {
-							if (country.name.toLowerCase().includes(keywords.toLowerCase()))
+						filtredCountries = countries.filter((country: ICountry) => {
+							if (country.name.toLowerCase().includes(keywords!.toLowerCase()))
 								return country
 						})
 
-						totalCount = filtredCountries.length
+						totalCount = filtredCountries!.length
 					}
 
 					return {

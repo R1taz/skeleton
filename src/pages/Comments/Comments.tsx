@@ -1,17 +1,19 @@
 import React, { useEffect, useRef } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { setComments, setCurrentPage } from '../../store/slices/commentsSlice'
-import Skeleton from '../../shared/Skeleton/Skeleton'
-import { useGetCommentsAPIQuery } from '../../api/commentsApi'
-import ErrorModal from '../../shared/ErrorModal'
+import {
+	setComments,
+	setCurrentPage,
+} from '../../store/slices/commentsSlice.ts'
+import Skeleton from '../../shared/Skeleton/Skeleton.tsx'
+import { useGetCommentsAPIQuery } from '../../api/commentsApi.ts'
+import ErrorModal from '../../shared/ErrorModal.tsx'
+import { useAppSelector, useAppDispatch } from '../../helpers/hooks/appHooks.ts'
 
 const Comments = () => {
-	const commentsListRef = useRef(null)
-	const comments = useSelector(state => state.commentsSlice.comments)
-	const current_page = useSelector(state => state.commentsSlice.currentPage)
-	const page_size = useSelector(state => state.commentsSlice.pageSize)
-	const comment_height = useSelector(state => state.commentsSlice.commentHeight)
-	const dispatch = useDispatch()
+	const commentsListRef = useRef<HTMLDivElement | null>(null)
+	const comments = useAppSelector(state => state.commentsSlice.comments)
+	const current_page = useAppSelector(state => state.commentsSlice.currentPage)
+	const page_size = useAppSelector(state => state.commentsSlice.pageSize)
+	const dispatch = useAppDispatch()
 
 	const { data, isLoading, error } = useGetCommentsAPIQuery({
 		current_page,
@@ -37,12 +39,16 @@ const Comments = () => {
 			}
 		)
 
-		const lastComment = commentsListRef.current.lastChild
-		observer.observe(lastComment)
+		const lastComment = commentsListRef.current.lastElementChild
+		if (lastComment) observer.observe(lastComment)
+
+		return () => {
+			if (lastComment) observer.unobserve(lastComment)
+		}
 	}, [comments.length, dispatch])
 
 	if (isLoading && !comments.length) {
-		return <Skeleton countElems={page_size} height={comment_height} />
+		return <Skeleton countElems={page_size} marginY={20} marginX={20} />
 	}
 	if (error) return <ErrorModal />
 

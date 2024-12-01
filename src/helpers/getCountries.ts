@@ -1,16 +1,16 @@
-import { useSelector } from 'react-redux'
 import { useGetCountriesAPIQuery } from '../api/countriesApi'
 import { useDebounce } from './hooks/useDebounce'
+import { useAppSelector } from './hooks/appHooks'
 
 export const getCountries = () => {
-	const keywords = useSelector(state => state.countriesSlice.keywords)
-	const current_page = useSelector(state => state.countriesSlice.currentPage)
-	const page_size = useSelector(state => state.countriesSlice.pageSize)
-	const selected_category = useSelector(
+	const keywords = useAppSelector(state => state.countriesSlice.keywords)
+	const current_page = useAppSelector(state => state.countriesSlice.currentPage)
+	const page_size = useAppSelector(state => state.countriesSlice.pageSize)
+	const selected_category = useAppSelector(
 		state => state.countriesSlice.selectedCategory
 	)
 
-	const debouncedValue = useDebounce(keywords, 1000)
+	const debouncedValue = useDebounce<string>({ value: keywords, delay: 1000 })
 
 	const { data, isLoading, error } = useGetCountriesAPIQuery({
 		current_page: current_page,

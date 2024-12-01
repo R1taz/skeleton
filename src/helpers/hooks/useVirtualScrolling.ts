@@ -1,8 +1,16 @@
-import React, { useLayoutEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { RefObject, useLayoutEffect, useState } from 'react'
 import { setIsScrolling } from '../../store/slices/photosSlice'
+import { IPhoto } from '../interfaces/photosInterfaces'
 
-const useVirtualScrolling = props => {
+interface Props {
+	containerHeight: number
+	rowHeight: number
+	scrollElementRef: RefObject<HTMLDivElement>
+	items: IPhoto[]
+	overscan: number
+}
+
+const useVirtualScrolling = (props: Props) => {
 	const { containerHeight, rowHeight, scrollElementRef, items, overscan } =
 		props
 
